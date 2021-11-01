@@ -6,7 +6,7 @@ CREATE TABLE Variants (
 
 CREATE TABLE Countries (
     countryID INTEGER PRIMARY KEY,
-    countryName VARCHAR[40] NOT NULL UNIQUE,
+    countryName VARCHAR[60] NOT NULL UNIQUE,
     population INT NOT NULL,
     
     CHECK(population > 0)
