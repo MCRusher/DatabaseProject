@@ -15,7 +15,7 @@ CREATE TABLE Countries (
 CREATE TABLE VariantSpreadInCountries (
     variantID INT NOT NULL,
     countryID INT NOT NULL,
-    vaccinated REAL,
+    vaccinated INT,
     cases INT,
     deaths INT,
     
