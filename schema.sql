@@ -1,3 +1,5 @@
+PRAGMA foreign_keys=ON;
+
 CREATE TABLE Variants (
     variantID INTEGER PRIMARY KEY,--variantID is an alias for rowid (must be INTEGER and not INT), autoincrements if not specified
     variantName VARCHAR[30] NOT NULL UNIQUE,
