@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COVID SEARCH</title>
+	<link href="{{ url_for('static',filename='styles/style.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<p class = "main_title">COVID SEARCH ENGINE</p>
+
+
+<form class = "search_form" action = "/next/" method = "GET"> 
+  
+<input class = "search_input"  type = "text" name = "user_input" placeholder = "Country name..." ></input>
+<button class = "search_btn" type = "submit">🔎</button>
+
+</form>
+
+</body>
+</html>
+
+

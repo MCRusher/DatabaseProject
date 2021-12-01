@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Next Page</title>
+		<link href="{{ url_for('static',filename='styles/page2style.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<p class = "main_title" style="cursor:pointer" onclick="location.href = '/'"> COVID SEARCH ENGINE</p>
+
+<form class = "search_form" action = "/next2/" method = "GET"> 
+  
+<input class = "search_input" type = "text"  name = "user_input2" placeholder = "Country name..."></input>
+<button class = "search_btn">🔎</button>
+
+</form>
+<style>
+
+.content-table{
+  background-color:#AFD275; 
+  //align-items: center; 
+  margin-left:auto; 
+  margin-right: auto; 
+  border-radius: 5px;
+  position: absolute; 
+	top: 10%;  
+	left:30%; 
+	}
+.thead_style{
+
+font-weight: bold; 
+}
+
+h1 {
+	position: absolute; 
+	top: 20%; 
+	left:30%;
+
+
+}
+</style>
+
+
+
+<table border = 1 class = "content-table">
+    <thead class = "thead_style">
+        <td>Country </td>
+        <td>Population </td>
+		<td>Delta</td>
+		<td>Alpha</td>
+		<td>Beta</td>
+		<td>Gamma</td>
+		<td>Lambda</td>
+		<td>Mu</td>
+    </thead>
+        {% for row in result %}
+         <tr>
+			<td style="cursor:pointer; color:blue" onclick="location.href = '/next3/{{row[0]}}'"> {{row[0]}} </td>
+             <td>{{row[1]}}</td>
+			 <td>{{row[2]}}</td>
+			 <td>{{row[3]}}</td>
+			 <td>{{row[4]}}</td>
+			 <td>{{row[5]}}</td>
+			 <td>{{row[6]}}</td>
+			 <td>{{row[7]}} </td>
+
+
+        </tr>
+       {% endfor %}
+</table>
+
+
+
+<h1>{{error}}</h1>
+
+
+
+</body>
+</html>

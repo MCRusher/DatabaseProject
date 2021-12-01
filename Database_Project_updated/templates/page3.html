@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+<title>{{link}}</title>
+
+</head>
+
+<body >
+
+<h1>{{link}}</h1>
+
+ <table border = 1 class = "content-table">
+    <thead class = "thead_style">
+        <td>Country </td>
+        <td>Population </td>
+		<td>Delta</td>
+		<td>Alpha</td>
+		<td>Beta</td>
+		<td>Gamma</td>
+		<td>Lambda</td>
+		<td>Mu</td>
+    </thead>
+        {% for row in result %}
+         <tr>
+		
+			 <td>{{row[0]}}</td> 
+             <td>{{row[1]}}</td>
+			 <td>{{row[2]}}</td>
+			 <td>{{row[3]}}</td>
+			 <td>{{row[4]}}</td>
+			 <td>{{row[5]}}</td>
+			 <td>{{row[6]}}</td>
+			 <td>{{row[7]}}</td>
+
+
+        </tr>
+       {% endfor %}
+	   
+	   <p> In {{link}}, {{most_var}} affect the most, about {{variant_amount}} <br>
+	   It was first detected in {{variant_date}}
+	   </p> 
+	   
+	   
+	   
+</table>
+</body>
+
+
+</html> 
