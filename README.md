@@ -27,7 +27,7 @@ Other Dependencies:
 9. run ```python download_data.py``` to collect datasheets necessary to populate database
 10. run ```python setup_data.py``` to populate the database with the datasheets
 
-#Usage
+# Usage
 
 1. Peform setup steps
 2. run ```flask run``` to start the server application
