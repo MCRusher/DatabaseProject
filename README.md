@@ -9,6 +9,7 @@ Python Dependencies:
 - kaggle
 - pandas
 - sqlite3 (comes with python)
+
 Other Dependencies:
 - A 'kaggle.json' API key inside a '.kaggle' directory located in the project directory
 - firefox
