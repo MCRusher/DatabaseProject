@@ -1,7 +1,7 @@
 # DatabaseProject
 Group project for UAkron DatabaseManagement
 
-#Dependencies
+# Dependencies
 
 Python Dependencies:
 - requests
@@ -14,7 +14,7 @@ Other Dependencies:
 - firefox
 - geckodriver in the project directory (or possibly in the path)
 
-#Setup
+# Setup
 
 1. Clone or save as zip
 2. install python dependencies
