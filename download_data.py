@@ -60,7 +60,7 @@ op.set_preference("browser.download.dir", datasets_dir)
 op.set_preference("browser.helperApps.neverAsk.saveToDisk","text/csv")
 
 #list of variants on the website to downloaded datasheets for
-variants = ["delta", "alpha", "beta", "gamma", "lambda", "mu"]
+variants = ["omicron", "gh490r", "delta", "alpha", "beta", "gamma", "lambda", "mu"]
 
 #open a firefox session
 with webdriver.Firefox(options=op) as driver:
