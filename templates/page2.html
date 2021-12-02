@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID SEARCH</title>
+    <link href="{{ url_for('static',filename='styles/page2style.css') }}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<h1 class = "main_title" style="cursor:pointer" onclick="location.href = '/'">COVID SEARCH ENGINE</h1>
+
+<br>
+
+<form class = "search_form" action = "/next2/" method = "GET">
+    <input class = "search_input" type = "text"  name = "user_input" placeholder = "Country name..."></input>
+    <button class = "search_btn">🔎</button>
+</form>
+
+<br>
+
+{%if show_table%}
+<table id="table" border="1" style="margin-left: auto; margin-right: auto; width:50%;">
+    <tr>
+        <th>
+            Countries Similar To Search
+        </th>
+    </tr>
+    
+    {%for country in similar%}
+    <tr>
+        <td style="text-align: center;">
+            <a style="cursor:pointer; color:blue;" href="/next3/{{country[0]}}">{{country[0]}}</a>
+        </td>
+    </tr>
+   {%endfor%}
+</table>
+{%endif%}
+
+<h1 style="text-align: center;">{{error}}</h1>
+
+</body>
+</html>
