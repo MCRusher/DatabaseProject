@@ -7,22 +7,20 @@
 </head>
 <body>
     <h1>{{name}}</h1>
-    <h2> Population: {{pop}}<h2/>
+    <h2>Population: {{pop}}<h2/>
+    <h2>Vaccinated: {{vaccinated}}</h2>
+    <h2>Deaths: {{deaths}}</h2>
     <table border = 1 class = "content-table">
         <thead class = "thead_style">
             <td>Variant</td>
             <td>Date Of Discovery</td>
-            <td>Vaccinated</td>
             <td>Cases</td>
-            <td>Deaths</td>
         </thead>
         {%for variant in variants%}
         <tr>
 			<td>{{variant[0]}}</td>
             <td>{{variant[1]}}</td>
             <td>{{variant[2]}}</td>
-            <td>{{variant[3]}}</td>
-            <td>{{variant[4]}}</td>
         </tr>
         {%endfor%}
     </table>
@@ -31,14 +29,15 @@
     <div id='graph'></div>
 	   
    <p> In the country {{name}}, the {{max[0]}} variant affects the most people, with {{max[2]}} cases <br>
-   This variant was first discovered in {{max[1]}}
+   This variant was first discovered in {{max[1]}}.
    </p> 
 </body>
 <script>
     var data = [{
         values: [
             {%for variant in variants%}
-                {{variant[3]}},
+                //Number("{{variant[2]}}".replaceAll(",","")),
+                {{variant[2]}},
             {%endfor%}
         ],
         labels: [

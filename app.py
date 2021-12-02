@@ -24,7 +24,6 @@ def next2():
             if(len(countries)<=0):
                 error = "SORRY ! NO COUNTRY FOUND."
                 return render_template('page2.html', error = error, show_table = False)
-                
             return render_template('page2.html', similar = countries, show_table = True)
     
     
@@ -33,10 +32,14 @@ def next3(c_name):
         con = sql.connect('data.db')
         cur = con.cursor()
         
-        c_pop = con.execute("SELECT population FROM Countries WHERE countryName = ?", (c_name,)).fetchone()[0]
+        (c_pop, c_vaccinated, c_deaths) = con.execute("SELECT population, vaccinated, deaths FROM Countries WHERE countryName = ?", (c_name,)).fetchone()
+        
+        #provide sensible default values for possibly null fields
+        c_vaccinated = c_vaccinated or "Unknown"
+        c_deaths = c_deaths or "Unknown"
         
         variant_data = con.execute("""
-        SELECT V.variantName, V.dateOfDiscovery, VS.Vaccinated, VS.Cases, VS.Deaths
+        SELECT V.variantName, V.dateOfDiscovery, VS.cases
         FROM Countries AS C
         JOIN VariantSpreadInCountries AS VS
             ON C.countryId = VS.countryId
@@ -46,7 +49,7 @@ def next3(c_name):
         """,(c_name,)).fetchall()
         
         max_variant = con.execute("""
-        SELECT V.variantName, V.dateOfDiscovery, MAX(VS.Cases)
+        SELECT V.variantName, V.dateOfDiscovery, MAX(VS.cases)
         FROM Countries AS C
         JOIN VariantSpreadInCountries AS VS
             ON C.countryId = VS.countryId
@@ -55,7 +58,7 @@ def next3(c_name):
         WHERE C.countryName = ?
         """,(c_name,)).fetchone()
        
-        return render_template('page3.html', name = c_name, pop = c_pop, variants = variant_data, max = max_variant)
+        return render_template('page3.html', name=c_name, pop=c_pop, vaccinated=c_vaccinated, deaths=c_deaths, variants=variant_data, max=max_variant)
 
 if __name__ == "__main__":
     app.run(debug=True)

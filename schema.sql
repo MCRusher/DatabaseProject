@@ -11,15 +11,16 @@ CREATE TABLE Countries (
     countryName VARCHAR[60] NOT NULL UNIQUE,
     population INT NOT NULL,
     
+    deaths INT,
+    vaccinated INT,
+    
     CHECK(population > 0)
 );
 
 CREATE TABLE VariantSpreadInCountries (
     variantID INT NOT NULL,
     countryID INT NOT NULL,
-    vaccinated INT,
     cases INT,
-    deaths INT,
     
     FOREIGN KEY(variantID) REFERENCES Variants (variantID),
     FOREIGN KEY(countryID) REFERENCES Countries (countryID),
